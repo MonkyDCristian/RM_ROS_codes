@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find very_simple_robot_simulator)/launch/run_all.launch" />
+  <node pkg="ros_pkg" name="read_odom" type="read_odom.py" output="screen" />
+
+</launch>
+

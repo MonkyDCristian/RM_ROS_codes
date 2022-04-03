@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find very_simple_robot_simulator)/launch/run_all.launch" />
+
+  <node pkg="ros_pkg" name="move_kobuki" type="move_kobuki.py" output="screen" />
+
+</launch>
+

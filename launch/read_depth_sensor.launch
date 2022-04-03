@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find very_simple_robot_simulator)/launch/run_all.launch" />
+  <node pkg="ros_pkg" name="read_depth_sensor" type="read_depth_sensor.py" output="screen" />
+
+</launch>
+
