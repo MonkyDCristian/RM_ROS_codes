@@ -9,8 +9,8 @@ class Move_kubuki( object ):
   def __init__( self ):
     rospy.init_node('move_kubuki')
     self.cmd_vel_pub = rospy.Publisher( '/yocs_cmd_vel_mux/input/navigation',  #topic
-    					  Twist,                                # ros msg
-    					  queue_size = 10 )                     # msg size 
+    					                          Twist,                                # ros msg
+    					                          queue_size = 10 )                     # msg size 
     self.running = True
 
   def run( self ):
