@@ -40,8 +40,10 @@ class PathMaker():
 			rospy.sleep(0.2)
 
 if __name__ == '__main__':
+	x0, y0 = 0, 0
 	x = np.linspace(0, 2*np.pi, num=100)
 	y = np.sin(x) 
+	x, y = x+x0, y+y0
 	
 	path = PathMaker()
 	path.publish_path(x,y)
