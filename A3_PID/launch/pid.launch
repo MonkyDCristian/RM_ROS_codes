@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 
   <node name="dist_ctrl" pkg="pid" type="controller" ns="robot_dist">
