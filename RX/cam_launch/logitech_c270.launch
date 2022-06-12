@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="node_name" default="logitech" />
+  <arg name="id" default="0" />
+ 
+  <node pkg="task0_pkg" name="$(arg node_name)" type="camera_logitech.py" output = "screen">
+   <remap from='camera_logitech'  to="$(arg node_name)" />
+   <param name="/cam_id" value="$(arg id)" />
+  </node>
+  
+</launch>

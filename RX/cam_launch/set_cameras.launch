@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="name_cam0" default="logitech0" />
+  <arg name="id_cam0" default="0" />
+  
+  <arg name="name_cam1" default="logitech1" />
+  <arg name="id_cam1" default="1" />
+  
+  <arg name="name_cam2" default="logitech2" />
+  <arg name="id_cam2" default="2" />
+  
+  <include file="$(find task0_pkg)/launch/logitech_c270.launch">
+    <arg name="node_name" value="$(arg name_cam0)"/>
+    <arg name="id" value="$(arg id_cam0)"/>
+  </include>
+  
+  <!--
+  <include file="$(find task0_pkg)/launch/logitech_c270.launch">
+    <arg name="node_name" value="$(arg name_cam1)"/>
+    <arg name="id" value="$(arg id_cam1)"/>
+  </include>
+  
+  <include file="$(find task0_pkg)/launch/logitech_c270.launch">
+    <arg name="node_name" value="$(arg name_cam2)"/>
+    <arg name="id" value="$(arg id_cam2)"/>
+  </include>
+  -->
+  
+  <node pkg="rqt_image_view" name="image_view_debug" type="rqt_image_view"/>
+  
+</launch>
