@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="img_topic" default="sensor/logitech0/img" />
+  
+  <include file="$(find task0_pkg)/launch/set_cameras.launch"></include>
+  
+  <node pkg="task0_pkg" name="task0_vision" type="task0_vision.py" output = "screen">
+   <param name="/img_topic" value="$(arg img_topic)" />
+  </node>
+  
+  <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure"/>
+  
+</launch>

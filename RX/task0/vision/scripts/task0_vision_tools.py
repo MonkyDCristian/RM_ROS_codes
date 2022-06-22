@@ -2,6 +2,9 @@ import cv2
 import numpy as np
 import time
 
+from dynamic_reconfigure.server import Server as DRServer
+from task0_pkg.cfg import HSVConfig
+
 class Task0ImgProcessing():
     
     def __init__(self, draw_rect=False, min_area= 5):
@@ -58,44 +61,23 @@ class Task0ImgProcessing():
             
             #7 register rectangles
             dict_rects[color] = rects
+            dict_rects[f"mask_{color}"] = mask
         
         return dict_rects
             
 
-class TrackbarHSV():
-    def __init__(self, processing_class, color):
+class MaskConfigHSV():
+    def __init__(self, processing_class):
         self.processing_class = processing_class
-        self.color = color
-        self.name = f"TrackBars {color}"
-        self.init_trackbar()
+        srv = DRServer(HSVConfig, self.callback)
+        self.set_color = "red"
         
-    def init_trackbar(self):
-        
-        cv2.namedWindow(self.name)
-        cv2.createTrackbar("Hue min", self.name, 0, 255, self.edit_hue_min)
-        cv2.createTrackbar("Hue max", self.name, 0, 255, self.edit_hue_max)
-        cv2.createTrackbar("sat min", self.name, 0, 255, self.edit_sat_min)
-        cv2.createTrackbar("sat max", self.name, 255, 255, self.edit_sat_min)
-        cv2.createTrackbar("val min", self.name, 0, 255, self.edit_val_min)
-        cv2.createTrackbar("val max", self.name, 255, 255, self.edit_val_min)
-    
-    def edit_hue_min(self, value):
-        self.processing_class.colors[self.color]["hsv_min"][0] = value
-    
-    def edit_hue_max(self, value):
-        self.processing_class.colors[self.color]["hsv_max"][0] = value
-    
-    def edit_sat_min(self, value):
-        self.processing_class.colors[self.color]["hsv_min"][1] = value
-    
-    def edit_sat_max(self, value):
-        self.processing_class.colors[self.color]["hsv_max"][1] = value
-    
-    def edit_val_min(self, value):
-        self.processing_class.colors[self.color]["hsv_min"][2] = value
-    
-    def edit_val_max(self, value):
-        self.processing_class.colors[self.color]["hsv_max"][2] = value
+    def callback(self, cfg, level):
+        self.set_color = cfg["color"]
+        self.processing_class.colors[self.set_color]["hsv_min"] = (cfg["h_min"],cfg["s_min"],cfg["v_min"])
+        self.processing_class.colors[self.set_color]["hsv_max"] = (cfg["h_max"],cfg["s_max"],cfg["v_max"])
+      
+        return cfg
         
 
 class FPS:

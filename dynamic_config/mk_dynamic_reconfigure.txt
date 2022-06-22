@@ -1,0 +1,35 @@
+make a .cfg script with the example that is in dynamic_tutorials
+
+use the command:
+
+chmod a+x cfg/<name_script>.cfg
+
+## To declare and build dynamic reconfigure parameters within this
+## package, follow these steps:
+## * In the file package.xml:
+##   * add a build_depend and a exec_depend tag for "dynamic_reconfigure"
+## * In this file (CMakeLists.txt):
+##   * add "dynamic_reconfigure" to
+##     find_package(catkin REQUIRED COMPONENTS ...)
+##   * uncomment the "generate_dynamic_reconfigure_options" section below
+##     and list every .cfg file to be processed
+
+finally use this:
+
+#!/usr/bin/env python3
+
+import rospy
+
+from dynamic_reconfigure.server import Server
+from dynamic_tutorials.cfg import TutorialsConfig
+
+def callback(config, level):
+   rospy.loginfo("""Reconfigure Request: {int_param}, {double_param}, 
+                    {str_param}, {bool_param}, {size}""".format(**config))
+   return config
+
+if __name__ == "__main__":
+   rospy.init_node("dynamic_tutorials", anonymous = False)
+   srv = Server(TutorialsConfig, callback)
+   rospy.spin()
+
