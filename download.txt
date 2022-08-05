@@ -1,7 +1,7 @@
 #ROS
 full-noetic l
-ros-pid     l
-ros-sound   l
+ros-noetic-pid l
+ros-noetic-audio-common l
 
 #my code
 
@@ -10,9 +10,9 @@ CV_tools    l
 Ucamaras*
 
 #ws
-logitech_ws  l
-RM_ws        l
-robotex_ws   l
+logitech_ws  
+RM_ws        
+robotex_ws   
 tutorials_ws l
 vrx_ws       l
 
