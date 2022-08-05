@@ -2,9 +2,9 @@
 <launch>
   <arg name="img_topic" default="sensor/logitech0/img" />
   
-  <include file="$(find task0_pkg)/launch/set_cameras.launch"></include>
+  <include file="$(find logitech_driver)/launch/set_cameras.launch"></include>
   
-  <node pkg="task0_pkg" name="task0_vision" type="task0_vision.py" output = "screen">
+  <node pkg="rx_task0" name="task0_vision" type="task0_vision.py" output = "screen">
    <param name="/img_topic" value="$(arg img_topic)" />
   </node>
   

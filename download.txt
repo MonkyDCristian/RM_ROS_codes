@@ -1,17 +1,44 @@
 #ROS
-full-noetic
-ros-pid
-ros-sound
+full-noetic l
+ros-pid     l
+ros-sound   l
 
 #my code
 
-RM-code
-CV_tools
-Ucamaras
+RM-code     l
+CV_tools    l
+Ucamaras*
+
+#ws
+logitech_ws  l
+RM_ws        l
+robotex_ws   l
+tutorials_ws l
+vrx_ws       l
 
 #External code
-vsrs
-trtlebot3
-vrx
-moveit
-*yolov5
+vsrs        l
+trtlebot3*
+vrx         l
+moveit*
+yolov5*
+
+
+source /home/parallels/workspaces/RM_ws/devel/setup.bash
+source /home/parallels/workspaces/vrx_ws/devel/setup.bash
+source /home/parallels/workspaces/robotex_ws/devel/setup.bash
+source /home/parallels/workspaces/tutorials_ws/devel/setup.bash
+source /home/parallels/workspaces/logitech_ws/devel/setup.bash
+
+echo "source ~/workspaces/RM_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+echo "source ~/workspaces/vrx_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+echo "source ~/workspaces/robotex_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+echo "source ~/workspaces/tutorials_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+echo "source ~/workspaces/logitech_ws/devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+
+

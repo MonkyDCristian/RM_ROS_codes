@@ -1,3 +1,6 @@
+#make a pkg
+catkin_create_pkg name_pkg dynamic_reconfigure std_msgs rospy roscpp
+
 make a .cfg script with the example that is in dynamic_tutorials
 
 use the command:
