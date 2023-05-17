@@ -9,3 +9,5 @@ source ~/.bashrc
 
 echo "source ~/workspaces/vrx_ws/devel/setup.bash" >> .bashrc
 source ~/.bashrc
+
+echo "source ~/repos/sema_beta/sema_beta_ws/devel/setup.bash" >> .bashrc

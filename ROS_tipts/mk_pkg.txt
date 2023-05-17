@@ -3,6 +3,7 @@ cd catkin_ws/src
 catkin_create_pkg name_pkg std_msgs rospy roscpp
 
 #dynamic reconfig
-catkin_create_pkg name_pkg dynamic_reconfigure std_msgs rospy roscpp
+catkin_create_pkg name_pkg dynamic_reconfigure geometry_msgs rospy roscpp std_msgs
 
-catkin_create_pkg caleuche_experiment std_msgs rospy roscpp
+catkin_create_pkg sema_driver dynamic_reconfigure geometry_msgs rospy roscpp std_msgs
+
