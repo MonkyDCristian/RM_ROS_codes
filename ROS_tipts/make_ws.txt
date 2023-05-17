@@ -4,10 +4,5 @@ cd name_ws
 mkdir src
 catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
 
-echo "~/Desktop/my_directory/name_ws/devel/setup.bash" >> .bashrc
+echo "~/Desktop/my_directory/name_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
-
-echo "source ~/workspaces/vrx_ws/devel/setup.bash" >> .bashrc
-source ~/.bashrc
-
-echo "source ~/repos/sema_beta/sema_beta_ws/devel/setup.bash" >> .bashrc

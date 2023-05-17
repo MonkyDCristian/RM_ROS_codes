@@ -33,6 +33,7 @@ class NodeName(object):
         self.pub_msg_type = String()
         self.sub_msg_type = String()
 
+        # service
         self.srv_res = SomeResponse()
 
         # action
